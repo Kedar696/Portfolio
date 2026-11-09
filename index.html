@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio of Venkata Vutukuri, IT student concentrating in Cybersecurity at George Mason University.">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Venkata Vutukuri</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single readable column; hero pairs a short intro with a "policy file" card that describes the person the way a sandbox policy describes an agent. */
+:root{
+  --bg:#eef2f1; --surface:#ffffff; --ink:#14211e; --muted:#55645f; --line:#d3dbd8;
+  --accent:#0a6b5f; --accent-soft:#d6ebe7; --flag:#b4530f;
+  --code-bg:#14211e; --code-fg:#dbe7e3; --code-key:#7fd1c2; --code-str:#f0b37e; --code-com:#7d8f89;
+  --display:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1716; --surface:#162220; --ink:#e3ecea; --muted:#9aaba6; --line:#26352f;
+  --accent:#5cc4b2; --accent-soft:#183a35; --flag:#f0a060;
+  --code-bg:#0a1110; --code-fg:#d3e1dd; --code-key:#7fd1c2; --code-str:#f0b37e; --code-com:#6f817b;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1716; --surface:#162220; --ink:#e3ecea; --muted:#9aaba6; --line:#26352f;
+  --accent:#5cc4b2; --accent-soft:#183a35; --flag:#f0a060;
+  --code-bg:#0a1110; --code-fg:#d3e1dd; --code-key:#7fd1c2; --code-str:#f0b37e; --code-com:#6f817b;
+  color-scheme:dark}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+p{margin:0}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* nav */
+nav{padding-block:20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+nav .mark{font-family:var(--mono);font-size:14px;font-weight:500}
+nav .mark span{color:var(--accent)}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:20px;flex-wrap:wrap;font-size:14px}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-block:48px 72px}
+.hero > *{min-width:0}
+.hero h1{font-size:clamp(40px,6.4vw,72px);font-weight:800;letter-spacing:-.025em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lede{font-size:19px;color:var(--muted);max-width:34ch;margin-top:20px}
+.status{display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;font-family:var(--mono);font-size:13px;color:var(--accent);background:var(--accent-soft);padding:6px 12px;border-radius:999px}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{font:500 15px var(--body);padding:11px 18px;border-radius:8px;border:1px solid var(--ink);text-decoration:none;color:var(--ink);background:transparent;cursor:pointer}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn:hover{border-color:var(--accent)}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent)}
+
+.policy{background:var(--code-bg);color:var(--code-fg);border-radius:12px;font-family:var(--mono);font-size:13.5px;line-height:1.75;overflow-x:auto}
+.policy .bar{display:flex;justify-content:space-between;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.08);color:var(--code-com);font-size:12px}
+.policy pre{margin:0;padding:16px 20px 20px;font:inherit}
+.k{color:var(--code-key)} .s{color:var(--code-str)} .c{color:var(--code-com)}
+
+/* sections */
+section{padding-block:64px;border-top:1px solid var(--line)}
+.sec-head{margin-bottom:36px}
+.sec-head h2{font-size:clamp(28px,3.6vw,38px);font-weight:700;letter-spacing:-.015em}
+.sec-head p{color:var(--muted);max-width:60ch;margin-top:10px}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.proj.feature{grid-column:1/-1;display:grid;grid-template-columns:1.2fr .8fr;gap:32px}
+.proj.feature > *{min-width:0}
+.proj .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.proj h3{font-size:24px;font-weight:700}
+.proj p{color:var(--muted)}
+.proj ul{margin:0;padding-left:18px;color:var(--muted);display:grid;gap:6px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tag{font-family:var(--mono);font-size:12px;padding:3px 9px;border-radius:6px;background:var(--accent-soft);color:var(--accent)}
+.proj .link{font-family:var(--mono);font-size:13px;word-break:break-all}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start}
+.stat{border:1px solid var(--line);border-radius:10px;padding:16px}
+.stat b{display:block;font-family:var(--display);font-size:34px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted)}
+
+/* experience */
+.roles{display:grid;gap:0}
+.role{display:grid;grid-template-columns:200px 1fr;gap:32px;padding-block:28px;border-top:1px dashed var(--line)}
+.role:first-child{border-top:0;padding-top:0}
+.role > *{min-width:0}
+.role .when{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.role h3{font-size:21px;font-weight:700}
+.role .org{color:var(--accent);font-weight:500;margin-top:4px}
+.role ul{margin:12px 0 0;padding-left:18px;color:var(--muted);display:grid;gap:6px;max-width:68ch}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+.skills h3{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:12px}
+.skills ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.skills li{font-size:14px;padding:4px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+
+.creds{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cred{border-left:3px solid var(--accent);padding:4px 0 4px 16px}
+.cred b{display:block;font-weight:600}
+.cred span{font-size:14px;color:var(--muted)}
+
+/* contact */
+.contact h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;max-width:16ch}
+.copy{font:500 12px var(--mono);padding:4px 10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:6px;cursor:pointer}
+footer{padding-block:32px 48px;color:var(--muted);font-size:13px;font-family:var(--mono)}
+
+@media (max-width:820px){
+  .hero,.proj.feature{grid-template-columns:1fr}
+  .hero{gap:36px;padding-block:24px 56px}
+  .role{grid-template-columns:1fr;gap:8px}
+  .projects{grid-template-columns:1fr}
+  .creds{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){.btn,a{transition:color .15s,background .15s,border-color .15s}}
+.shots{display:grid;gap:10px;min-width:0}
+.shots.full{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px}
+.shot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.shots figure{margin:0;display:grid;gap:8px;align-content:start;min-width:0}
+.shot{padding:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;cursor:zoom-in;background:var(--bg);display:block;width:100%}
+.shot img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top center;max-width:100%}
+.shot:hover{border-color:var(--accent)}
+.shots figcaption{font-size:13px;line-height:1.45;color:var(--muted)}
+.lightbox{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);max-height:92vh}
+.lightbox::backdrop{background:rgba(8,14,13,.82)}
+.lightbox img{display:block;max-width:100%;max-height:80vh;border-radius:8px;margin:0 auto}
+.lightbox p{color:#e3ecea;font-size:14px;margin-top:12px;text-align:center}
+.lightbox .close{position:absolute;top:8px;right:8px;font:500 13px var(--body);padding:6px 12px;border-radius:6px;border:0;background:rgba(0,0,0,.6);color:#fff;cursor:pointer}
+.links{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px}
+.btn.small{font-size:14px;padding:8px 14px}
+.shots:not(.full) .shot-grid{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
+.proj.wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.proj.wide > *{min-width:0}
+.wide-text{display:flex;flex-direction:column;gap:14px}
+.shots.tall .shot-grid{grid-template-columns:1fr 1fr}
+.shots.tall .shot img{aspect-ratio:3/4;object-position:center}
+@media (max-width:820px){.proj.wide{grid-template-columns:1fr}}
+.contact{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+.contact > *{min-width:0}
+.contact-intro{display:grid;gap:16px}
+.contact-intro p{color:var(--muted);max-width:56ch}
+.contact-intro strong{color:var(--ink);font-weight:600}
+.contact-list{margin:0;display:grid;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 24px;font-family:var(--body)}
+.contact-list > div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding-block:14px;border-top:1px solid var(--line)}
+.contact-list > div:first-child{border-top:0}
+.contact-list dt{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.contact-list dd{margin:0;font-size:15px;word-break:break-word}
+.contact-list #email{font-family:var(--mono);font-size:14px}
+@media (max-width:820px){.contact{grid-template-columns:1fr;gap:28px}}
+@media (max-width:480px){.contact-list > div{grid-template-columns:1fr;gap:4px}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <div class="mark">vgk<span>.</span>vutukuri</div>
+    <ul>
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="status">Open to internships · Summer 2027</div>
+      <h1>Venkata Gagan Kedarish <em>Vutukuri</em></h1>
+      <p class="lede">Information Technology student concentrating in Cybersecurity at George Mason University. I build security tools, CTF challenges, and guardrails for AI agents.</p>
+      <div class="actions">
+        <a class="btn primary" href="#work">See projects</a>
+        <a class="btn" href="https://github.com/Kedar696" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/venkata-vutukuri/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="policy" aria-label="Profile summary written as a security policy file">
+      <div class="bar"><span>Fairfax, VA</span></div>
+<pre><span class="k">subject</span>: <span class="s">"Venkata Vutukuri"</span>
+<span class="k">school</span>: <span class="s">"George Mason University"</span>
+<span class="k">degree</span>: <span class="s">"B.S. Information Technology"</span>
+<span class="k">concentration</span>: <span class="s">"Cybersecurity"</span>
+<span class="k">graduates</span>: <span class="s">"Dec 2028"</span>
+<span class="k">allow</span>:
+  - <span class="s">web-app security</span>
+  - <span class="s">AI agent sandboxing</span>
+  - <span class="s">cloud IAM</span>
+  - <span class="s">CTF challenge design</span>
+<span class="k">certs</span>: [<span class="s">AZ-900</span>, <span class="s">AI-900</span>]
+<span class="k">audit</span>: <span class="s">"Dean's List, 2024 &amp; 2026"</span></pre>
+    </div>
+  </header>
+
+  <section id="work">
+    <div class="sec-head">
+      <div>
+        <h2>Projects</h2>
+      </div>
+    </div>
+
+    <div class="projects">
+      <article class="proj feature">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="meta"><span class="label">AWS Hackathon · AI Safety</span><span class="label">Nov 2026</span></div>
+          <h3>Fasal Pulse: MEL Survey Agent</h3>
+          <p>Built in 3 days at the <strong>AWS Breaking Barriers Hackathon</strong>. An AI agent that reads farmers' FarmerChat conversations, decides whether a follow-up is needed, and writes one to three Hindi and English questions asking whether the advice worked.</p>
+          <ul>
+            <li>Question templates and safety checks block new advice and personal questions, and swap any failing AI-written question for a safe template.</li>
+            <li>Survey screens built in Streamlit, with the live demo hosted on Amazon ECS.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Amazon Bedrock</span><span class="tag">Claude Haiku 4.5</span><span class="tag">Streamlit</span><span class="tag">ECS</span></div>
+          <div class="links"><a class="btn primary small" href="https://fasal-pulse.streamlit.app/" target="_blank" rel="noopener">Try the live demo</a><a class="link" href="https://github.com/Kedar696/mel-agent-repo" target="_blank" rel="noopener">github.com/Kedar696/mel-agent-repo</a></div>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>6,999</b><span>practice conversations tested</span></div>
+          <div class="stat"><b>432</b><span>automated tests</span></div>
+          <div class="stat"><b>2</b><span>languages: Hindi &amp; English</span></div>
+          <div class="stat"><b>3</b><span>days from idea to live demo</span></div>
+        </div>
+      <div class="shots full"><div class="label">Screenshots</div><div class="shot-grid"><figure><button type="button" class="shot" data-full="img/fasal_builder.jpg" data-cap="Survey builder: the farmer's question and advice, bilingual Hindi and English questions, safety checks, and a channel preview" aria-label="Enlarge: Survey builder: the farmer's question and advice, bilingual Hindi and English questions, safety checks, and a channel preview"><img src="img/fasal_builder.jpg" alt="Survey builder: the farmer's question and advice, bilingual Hindi and English questions, safety checks, and a channel preview" loading="lazy"></button><figcaption>Survey builder: the farmer's question and advice, bilingual Hindi and English questions, safety checks, and a channel preview</figcaption></figure><figure><button type="button" class="shot" data-full="img/fasal_eval.jpg" data-cap="Evaluation dashboard: 99.3% decision accuracy and 100% format, safety and timeliness across 5,232 survey files" aria-label="Enlarge: Evaluation dashboard: 99.3% decision accuracy and 100% format, safety and timeliness across 5,232 survey files"><img src="img/fasal_eval.jpg" alt="Evaluation dashboard: 99.3% decision accuracy and 100% format, safety and timeliness across 5,232 survey files" loading="lazy"></button><figcaption>Evaluation dashboard: 99.3% decision accuracy and 100% format, safety and timeliness across 5,232 survey files</figcaption></figure><figure><button type="button" class="shot" data-full="img/fasal_cost.jpg" data-cap="Cost and scale: all 6,999 conversations in 14 minutes, about $1 per 1,000 surveys" aria-label="Enlarge: Cost and scale: all 6,999 conversations in 14 minutes, about $1 per 1,000 surveys"><img src="img/fasal_cost.jpg" alt="Cost and scale: all 6,999 conversations in 14 minutes, about $1 per 1,000 surveys" loading="lazy"></button><figcaption>Cost and scale: all 6,999 conversations in 14 minutes, about $1 per 1,000 surveys</figcaption></figure></div></div>
+      </article>
+
+      <article class="proj">
+        <div class="meta"><span class="label">Application Security</span><span class="label">Aug – Sep 2026</span></div>
+        <h3>Web Vulnerability Scanner</h3>
+        <p>A Flask app that checks SSL/TLS certificates, security headers, cookies, and HTML forms, then produces a security score and JSON report.</p>
+        <ul>
+          <li>Hardened against misuse: private IP blocking, redirect validation, timeouts, 2&nbsp;MB response limits, rate limiting.</li>
+          <li>47-test Pytest suite; deployed with Gunicorn on Render.</li>
+        </ul>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Pytest</span><span class="tag">Render</span></div>
+        <div class="links"><a class="btn primary small" href="https://web-vulnerability-scanner-86cr.onrender.com/" target="_blank" rel="noopener">Try the live demo</a><a class="link" href="https://github.com/Kedar696/Web-Vulnerability-Scanner" target="_blank" rel="noopener">github.com/Kedar696/Web-Vulnerability-Scanner</a></div>
+        <div class="shots"><div class="label">Screenshots</div><div class="shot-grid"><figure><button type="button" class="shot" data-full="img/scanner_input.jpg" data-cap="Scanning GitHub.com from the hosted app" aria-label="Enlarge: Scanning GitHub.com from the hosted app"><img src="img/scanner_input.jpg" alt="Scanning GitHub.com from the hosted app" loading="lazy"></button><figcaption>Scanning GitHub.com from the hosted app</figcaption></figure><figure><button type="button" class="shot" data-full="img/scanner_results.jpg" data-cap="Results: 90/100 score, verified certificate, and a header-by-header report" aria-label="Enlarge: Results: 90/100 score, verified certificate, and a header-by-header report"><img src="img/scanner_results.jpg" alt="Results: 90/100 score, verified certificate, and a header-by-header report" loading="lazy"></button><figcaption>Results: 90/100 score, verified certificate, and a header-by-header report</figcaption></figure><figure><button type="button" class="shot" data-full="img/scanner_tests.jpg" data-cap="All 47 Pytest tests passing" aria-label="Enlarge: All 47 Pytest tests passing"><img src="img/scanner_tests.jpg" alt="All 47 Pytest tests passing" loading="lazy"></button><figcaption>All 47 Pytest tests passing</figcaption></figure></div></div>
+      </article>
+
+      <article class="proj">
+        <div class="meta"><span class="label">Cloud Security · IAM</span><span class="label">Jun – Jul 2026</span></div>
+        <h3>Cloud IAM Automation Tool</h3>
+        <p>A Python tool that automates cloud Identity and Access Management policy administration to reduce manual work and misconfiguration risk.</p>
+        <ul>
+          <li>Automated user provisioning and deprovisioning.</li>
+          <li>Enforces least-privilege access to limit privilege exposure.</li>
+        </ul>
+        <div class="tags"><span class="tag">Python</span><span class="tag">IAM</span><span class="tag">Least privilege</span></div>
+        <a class="link" href="https://github.com/Kedar696/Cloud-IAM-Automation-Tool" target="_blank" rel="noopener">github.com/Kedar696/Cloud-IAM-Automation-Tool</a>
+        <div class="shots"><div class="label">Screenshots</div><div class="shot-grid"><figure><button type="button" class="shot" data-full="img/iam_demo.jpg" data-cap="Demo run: onboarding, access review, role change and offboarding, with audit log and 6 passing tests" aria-label="Enlarge: Demo run: onboarding, access review, role change and offboarding, with audit log and 6 passing tests"><img src="img/iam_demo.jpg" alt="Demo run: onboarding, access review, role change and offboarding, with audit log and 6 passing tests" loading="lazy"></button><figcaption>Demo run: onboarding, access review, role change and offboarding, with audit log and 6 passing tests</figcaption></figure></div></div>
+      </article>
+          <article class="proj wide">
+        <div class="wide-text">
+          <div class="meta"><span class="label">Hardware · Drone Prototyping</span><span class="label">Aug 2026 – Present</span></div>
+          <h3>MIX Unmanned Aerial Systems Prototyping Program</h3>
+          <p>A 10-week, hands-on program at George Mason University focused on unmanned aerial systems (UAS) and drone prototyping.</p>
+          <ul>
+            <li>Building and configuring drones from kit parts while collaborating with fellow students.</li>
+            <li>Gaining practical experience with UAS technology and the prototyping process.</li>
+            <li>Working toward a micro-credential on completion of the program.</li>
+          </ul>
+          <div class="tags"><span class="tag">UAS</span><span class="tag">Drone assembly</span><span class="tag">Prototyping</span><span class="tag">Teamwork</span></div>
+        </div>
+        <div class="shots tall"><div class="label">Photos</div><div class="shot-grid"><figure><button type="button" class="shot" data-full="img/uas_drone.jpg" data-cap="Assembled S500 quadcopter: frame, four motors, landing gear and flight controller" aria-label="Enlarge: Assembled S500 quadcopter: frame, four motors, landing gear and flight controller"><img src="img/uas_drone.jpg" alt="Assembled S500 quadcopter: frame, four motors, landing gear and flight controller" loading="lazy"></button><figcaption>Assembled S500 quadcopter: frame, four motors, landing gear and flight controller</figcaption></figure><figure><button type="button" class="shot" data-full="img/uas_team.jpg" data-cap="Team build session: laying out frame arms and wiring the flight controller" aria-label="Enlarge: Team build session: laying out frame arms and wiring the flight controller"><img src="img/uas_team.jpg" alt="Team build session: laying out frame arms and wiring the flight controller" loading="lazy"></button><figcaption>Team build session: laying out frame arms and wiring the flight controller</figcaption></figure></div></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head">
+      <div><h2>Experience</h2></div>
+    </div>
+    <div class="roles">
+      <div class="role">
+        <div class="when">Oct 2026 – Present</div>
+        <div>
+          <h3>Undergraduate Research Assistant</h3>
+          <div class="org">George Mason University</div>
+          <ul>
+            <li>Research NVIDIA's Open Agent Safety Platform and OpenShell, an open-source runtime that sandboxes autonomous AI agents and enforces security policy from outside the agent.</li>
+            <li>Analyze OpenShell's gateway, supervisor, and sandbox architecture; test default-deny network policies and audit logs.</li>
+            <li>Write weekly reports and a guide on AI agent safety, zero-trust access control, and runtime boundaries.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="role">
+        <div class="when">Fall 2026 – Present</div>
+        <div>
+          <h3>Developer, CTF Hackathon</h3>
+          <div class="org">George Mason University</div>
+          <ul>
+            <li>Design and build web challenges in Python and Flask with intentional vulnerabilities and hidden flags that teach real-world attacks.</li>
+            <li>Test every challenge with Burp Suite and other tools to confirm it works and can be solved.</li>
+            <li>Peer review with teammates and plan, build, and deploy challenges together.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="role">
+        <div class="when">Fall 2026 – Present</div>
+        <div>
+          <h3>Peer Mentor, IT Courses</h3>
+          <div class="org">George Mason University</div>
+          <ul>
+            <li>Help students understand IT course concepts, work through academic challenges, and build confidence.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="role">
+        <div class="when">Jun – Aug 2025</div>
+        <div>
+          <h3>Cybersecurity Researcher</h3>
+          <div class="org">Cyber News Live · Remote</div>
+          <ul>
+            <li>Researched emerging threats, vulnerabilities, data breaches, and industry developments.</li>
+            <li>Published findings on cybernewslive.com and LinkedIn.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head">
+      <div><h2>Skills &amp; certifications</h2></div>
+    </div>
+    <div class="skills">
+      <div><h3>Security</h3><ul><li>Web vulnerability scanning</li><li>CTF development</li><li>Burp Suite</li><li>IAM &amp; access control</li><li>AI agent security</li><li>LLM safety checks</li><li>Threat intelligence</li><li>Linux / Unix</li><li>Networking</li></ul></div>
+      <div><h3>Programming</h3><ul><li>Python</li><li>Flask</li><li>Pytest</li><li>Streamlit</li><li>SQL</li><li>JavaScript</li><li>HTML / CSS</li></ul></div>
+      <div><h3>Cloud &amp; data</h3><ul><li>AWS Bedrock</li><li>AWS ECS</li><li>Microsoft Azure</li><li>Google Cloud</li><li>Firebase</li><li>MySQL</li><li>ER modeling</li></ul></div>
+      <div><h3>Tools</h3><ul><li>Git &amp; GitHub</li><li>Gunicorn</li><li>Render</li><li>Vercel</li><li>Technical writing</li></ul></div>
+    </div>
+    <div class="creds" style="margin-top:48px">
+      <div class="cred"><b>Azure Fundamentals (AZ-900)</b><span>Microsoft · Dec 2025</span></div>
+      <div class="cred"><b>Azure AI Fundamentals (AI-900)</b><span>Microsoft · Dec 2025</span></div>
+      <div class="cred"><b>Dean's List, Scholar Award</b><span>George Mason · Dec 2024, May 2026</span></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div class="contact-intro">
+        <h2>Let's talk about security roles.</h2>
+        <p>I'm looking for <strong>Summer 2027 cybersecurity internships</strong>, especially in application security, cloud security, security operations, and AI security. I'm also happy to talk about research, CTF events, or part-time work during the school year.</p>
+        <p>I bring hands-on experience building and testing security tools in Python, deploying on AWS and Render, and writing clear technical documentation. I usually reply within a day.</p>
+      </div>
+      <dl class="contact-list">
+        <div><dt>Email</dt><dd><span id="email">venkatavutukuri696@gmail.com</span> <button class="copy" id="copy-email" type="button">Copy</button></dd></div>
+        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/venkata-vutukuri/" target="_blank" rel="noopener">linkedin.com/in/venkata-vutukuri</a></dd></div>
+        <div><dt>GitHub</dt><dd><a href="https://github.com/Kedar696" target="_blank" rel="noopener">github.com/Kedar696</a></dd></div>
+        <div><dt>Location</dt><dd>Fairfax, Virginia · Open to on-site, hybrid, or remote</dd></div>
+        <div><dt>Education</dt><dd>B.S. Information Technology, Cybersecurity concentration · George Mason University, expected Dec 2028</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <footer>© 2026 Venkata Vutukuri · Fairfax, Virginia</footer>
+</div>
+
+<dialog class="lightbox" id="lightbox"><button class="close" id="lb-close" type="button">Close</button><img id="lb-img" alt=""><p id="lb-cap"></p></dialog>
+<script>
+(function(){var d=document.getElementById('lightbox'),im=document.getElementById('lb-img'),cap=document.getElementById('lb-cap');
+document.querySelectorAll('.shot').forEach(function(b){b.addEventListener('click',function(){im.src=b.dataset.full;im.alt=b.dataset.cap;cap.textContent=b.dataset.cap;if(d.showModal)d.showModal();});});
+document.getElementById('lb-close').addEventListener('click',function(){d.close()});
+d.addEventListener('click',function(e){if(e.target===d)d.close()});})();
+</script>
+<script>
+document.getElementById('copy-email').addEventListener('click', function(){
+  var btn=this, text=document.getElementById('email').textContent;
+  function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1600)}
+  function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected'}
+  try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
+});
+</script>
+
+</body>
+</html>
